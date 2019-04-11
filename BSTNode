@@ -1,0 +1,61 @@
+
+public class BST{
+	private BST root;
+	private int size;
+
+	private void replace(BSTNode v, BSTNode u){
+		
+	}
+	/*returns node with key k in the tree rooted at BSTNode v; null if k int is found*/
+	public BSTNode find(int k, BSTNode v){
+		if (v == null){
+			return null;
+		}
+		else if (v.getKey() == k){
+			return v;
+		}
+		else{
+			if (v.getKey() < k){
+				return find(k, v.right());
+			}
+			else{
+				return find(k, v.getKey());
+			}
+		}
+	}
+	/** inserts new key k into subtree rooted at node v 
+	*precondition: v is not null **/
+	private void recInsert(int k, BSTNode v){
+		if (k > v.getKey()){
+			if (v.getRight() != null){
+				recInsert(k, v.getRight());
+			}
+			else{
+				v.getRight() = new BSTNode(v, k, null, null);
+			}
+		}
+		else if (k < v.getKey){
+			if (v.getLeft() != null){
+				recInsert(k, v);
+			}
+			else{
+				v.getLeft() = new BSTNode(v, k, null, null);
+			}
+		}
+	}
+	public void insert(int k){
+		if (root == null){
+			root = new BSTNode(null, k, null, null);
+		}
+		else{
+			recInsert(k, root);
+		}
+	}
+
+	public void BSTNode delete(int k){
+		v.getKey() = k;
+		if (v.getLeft() == null && v.getRight() == null){
+
+		}
+	}
+}
